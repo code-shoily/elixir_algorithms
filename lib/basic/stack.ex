@@ -14,7 +14,7 @@ defmodule Algo.Basic.Stack do
   def new, do: %Stack{}
 
   @spec new([a]) :: Stack.t(a) when a: any()
-  def new(xs), do: %Stack{data: xs}
+  def new(xs), do: %Stack{data: Enum.reverse(xs)}
 
   @spec push(Stack.t(), any()) :: Stack.t()
   def push(%Stack{data: xs}, x), do: %Stack{data: [x | xs]}
