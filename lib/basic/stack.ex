@@ -6,6 +6,7 @@ defmodule Algo.Basic.Stack do
 
   @type t(a) :: %Stack{data: list(a)}
   @type t :: t(any())
+  @typep annotation :: %{order: String.t() | nil, upnext: any()}
 
   defstruct data: []
 
@@ -32,4 +33,16 @@ defmodule Algo.Basic.Stack do
   @spec empty?(Stack.t()) :: true | false
   def empty?(%Stack{data: []}), do: true
   def empty?(_), do: false
+
+  @spec annotate(Stack.t()) :: annotation
+  def annotate(%Stack{data: []}), do: %{order: nil, upnext: nil}
+
+  def annotate(%Stack{data: [x | _] = data}),
+    do: %{
+      order:
+        data
+        |> Enum.reverse()
+        |> Enum.join(" -> "),
+      upnext: x
+    }
 end

@@ -54,8 +54,10 @@ defmodule AlgoTest.Stack do
   end
 
   test "Annotate a stack" do
-    stack = Stack.new() |> Stack.push("A") |> Stack.push("B") |> Stack.push("C")
+    empty_stack = Stack.new()
+    stack = empty_stack |> Stack.push("A") |> Stack.push("B") |> Stack.push("C")
 
+    assert Stack.annotate(empty_stack) == %{order: nil, upnext: nil}
     assert Stack.annotate(stack) == %{order: "A -> B -> C", upnext: "C"}
   end
 end
