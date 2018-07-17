@@ -7,7 +7,7 @@ defmodule AlgoTest.Stack do
   end
 
   test "Create a new non-empty Stack" do
-    assert Stack.new([80, 90, 100]) == %Stack{data: [80, 90, 100]}
+    assert Stack.new([80, 90, 100]) == %Stack{data: [100, 90, 80]}
   end
 
   test "Push a value into a stack" do
