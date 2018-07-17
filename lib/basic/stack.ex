@@ -30,7 +30,7 @@ defmodule Algo.Basic.Stack do
   @spec size(Stack.t()) :: non_neg_integer()
   def size(%Stack{data: xs}), do: Enum.count(xs)
 
-  @spec empty?(Stack.t()) :: true | false
+  @spec empty?(Stack.t()) :: boolean()
   def empty?(%Stack{data: []}), do: true
   def empty?(_), do: false
 
