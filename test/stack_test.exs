@@ -57,7 +57,7 @@ defmodule AlgoTest.Stack do
     empty_stack = Stack.new()
     stack = empty_stack |> Stack.push("A") |> Stack.push("B") |> Stack.push("C")
 
-    assert Stack.annotate(empty_stack) == %{order: nil, upnext: nil}
-    assert Stack.annotate(stack) == %{order: "A -> B -> C", upnext: "C"}
+    assert Stack.annotate(empty_stack) == %{order: nil, end: nil}
+    assert Stack.annotate(stack) == %{order: "A -> B -> C", end: "C"}
   end
 end
