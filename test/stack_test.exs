@@ -29,15 +29,15 @@ defmodule AlgoTest.Stack do
 
   test "Popping a non-empty stack" do
     stack_1 = Stack.new([1])
-    stack_many = Stack.new([4, 5, 6])
+    stack_many = Stack.new() |> Stack.push(2) |> Stack.push(3) |> Stack.push(4)
 
     assert Stack.pop(stack_1) == {:ok, 1, %Stack{data: []}}
-    assert Stack.pop(stack_many) == {:ok, 4, %Stack{data: [5, 6]}}
+    assert Stack.pop(stack_many) == {:ok, 4, %Stack{data: [3, 2]}}
   end
 
   test "Peeking into a non-empty stack" do
     stack_1 = Stack.new([1])
-    stack_many = Stack.new([4, 5, 6])
+    stack_many = Stack.new() |> Stack.push(2) |> Stack.push(3) |> Stack.push(4)
 
     assert Stack.peek(stack_1) == {:ok, 1, stack_1}
     assert Stack.peek(stack_many) == {:ok, 4, stack_many}
